@@ -1,6 +1,7 @@
 
-import 'package:calendar_app/models/event.dart';
 import 'package:flutter/material.dart';
+
+import '../models/event.dart';
 
 
 

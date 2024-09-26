@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+
 class EventScreen extends StatefulWidget {
   const EventScreen({super.key});
 

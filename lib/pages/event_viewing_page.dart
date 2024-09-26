@@ -1,11 +1,11 @@
 
-import 'package:calendar_app/pages/home_page.dart';
-import 'package:calendar_app/provider/event_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:calendar_app/models/event.dart';
 
+import '../models/event.dart';
+import '../provider/event_provider.dart';
 import 'event_editing_page.dart';
+import 'home_page.dart';
 
 
 

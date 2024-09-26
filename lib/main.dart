@@ -1,6 +1,6 @@
-import 'package:calendar_app/pages/home_page.dart';
-import 'package:calendar_app/provider/event_provider.dart';
 
+import 'package:finalproject/pages/home_page.dart';
+import 'package:finalproject/provider/event_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

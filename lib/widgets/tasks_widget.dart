@@ -1,11 +1,13 @@
-import 'package:calendar_app/models/event_data_source.dart';
-import 'package:calendar_app/pages/event_viewing_page.dart';
-import 'package:calendar_app/provider/event_provider.dart';
+
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:syncfusion_flutter_calendar/calendar.dart';
 import 'package:syncfusion_flutter_core/theme.dart';
+
+import '../models/event_data_source.dart';
+import '../pages/event_viewing_page.dart';
+import '../provider/event_provider.dart';
 
 class TasksWidget extends StatefulWidget {
   const TasksWidget({super.key});

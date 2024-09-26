@@ -8,20 +8,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-<<<<<<< HEAD
-import 'package:calendar_app/main.dart';
-=======
 import 'package:finalproject/main.dart';
->>>>>>> 416b7fbcac06d38f4b4c41c7e42fd0eedcd617f2
 
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
     // Build our app and trigger a frame.
-<<<<<<< HEAD
-    await tester.pumpWidget(const MyApp());
-=======
     await tester.pumpWidget(const CalendarApp());
->>>>>>> 416b7fbcac06d38f4b4c41c7e42fd0eedcd617f2
+    await tester.pumpWidget(const CalendarApp());
 
     // Verify that our counter starts at 0.
     expect(find.text('0'), findsOneWidget);
