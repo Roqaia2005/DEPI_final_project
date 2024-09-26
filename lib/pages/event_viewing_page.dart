@@ -19,17 +19,17 @@ class _EventViewingPageState extends State<EventViewingPage> {
   @override
   Widget build(BuildContext context) {
     return Container(
-       decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-            colors: [
-              Color(0xFF8E2DE2), // Purple
-              Color(0xFF4A00E0), // Darker Purple
-              Color(0xFF00C6FF), // Light Blue
-            ],
-          ),
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+          colors: [
+            Color(0xFF8E2DE2),
+            Color(0xFF4A00E0),
+            Color(0xFF00C6FF),
+          ],
         ),
+      ),
       child: Scaffold(
         appBar: AppBar(
           title: Text(widget.event.title),
@@ -45,7 +45,6 @@ class _EventViewingPageState extends State<EventViewingPage> {
             IconButton(
               icon: Icon(Icons.delete),
               onPressed: () {
-      
                 deleteEvent(context);
               },
             ),
@@ -64,7 +63,7 @@ class _EventViewingPageState extends State<EventViewingPage> {
               Text("Title: ${widget.event.title}"),
               Text("From: ${widget.event.from}"),
               Text("To: ${widget.event.to}"),
-              // Add other event details here
+              Text("Description: ${widget.event.description}"),
             ],
           ),
         ),
@@ -73,29 +72,29 @@ class _EventViewingPageState extends State<EventViewingPage> {
   }
 
   void deleteEvent(BuildContext context) async {
-  final shouldDelete = await showDialog<bool>(
-    context: context,
-    builder: (context) => AlertDialog(
-      title: Text("Delete Event"),
-      content: Text("Are you sure you want to delete this event?"),
-      actions: [
-        TextButton(
-          child: Text("Cancel"),
-          onPressed: () => Navigator.of(context).pop(false),
-        ),
-        TextButton(
-          child: Text("Delete"),
-          onPressed: () => Navigator.of(context).pop(true),
-        ),
-      ],
-    ),
-  );
+    final shouldDelete = await showDialog<bool>(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: Text("Delete Event"),
+        content: Text("Are you sure you want to delete this event?"),
+        actions: [
+          TextButton(
+            child: Text("Cancel"),
+            onPressed: () => Navigator.of(context).pop(false),
+          ),
+          TextButton(
+            child: Text("Delete"),
+            onPressed: () => Navigator.of(context).pop(true),
+          ),
+        ],
+      ),
+    );
 
-  if (shouldDelete == true && widget.event != null) {
-    final provider = Provider.of<EventProvider>(context, listen: false);
-    provider.deleteEvent(widget.event!); // Delete event
-    Navigator.of(context).push(MaterialPageRoute(builder: (context)=>HomePage()));
-    // Navigate back after deletion
+    if (shouldDelete == true && widget.event != null) {
+      final provider = Provider.of<EventProvider>(context, listen: false);
+      provider.deleteEvent(widget.event!);
+      Navigator.of(context)
+          .push(MaterialPageRoute(builder: (context) => HomePage()));
+    }
   }
-}
 }

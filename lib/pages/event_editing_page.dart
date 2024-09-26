@@ -429,7 +429,7 @@ Future saveForm() async {
       title: titleController.text,
       from: fromDate,
       to: toDate,
-      description: "Description",  // Change as needed
+      description: descriptionController.text,  // Change as needed
       isAllDay: false,
     );
 
