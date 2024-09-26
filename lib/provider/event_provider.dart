@@ -1,13 +1,10 @@
-<<<<<<< HEAD
+
 import 'package:calendar_app/models/event.dart';
 import 'package:flutter/material.dart';
 
-=======
-import 'package:flutter/material.dart';
 
-import '../models/event.dart';
 
->>>>>>> 416b7fbcac06d38f4b4c41c7e42fd0eedcd617f2
+
 class EventProvider extends ChangeNotifier {
   final List<Event> _events = [];
   DateTime _selectedDate = DateTime.now();

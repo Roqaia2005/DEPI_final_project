@@ -25,19 +25,18 @@
 //     );
 //   }
 // }
-<<<<<<< HEAD
 import 'package:calendar_app/pages/event_editing_page.dart';
 import 'package:calendar_app/widgets/calendar_widget.dart';
 import 'package:flutter/material.dart';
 
-=======
+
 
 import 'package:flutter/material.dart';
 
 import '../widgets/calendar_widget.dart';
 import 'event_editing_page.dart';
 
->>>>>>> 416b7fbcac06d38f4b4c41c7e42fd0eedcd617f2
+
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 

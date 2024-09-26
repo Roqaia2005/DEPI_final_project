@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 import 'package:calendar_app/pages/home_page.dart';
 import 'package:calendar_app/provider/event_provider.dart';
 import 'package:flutter/material.dart';
@@ -6,16 +6,9 @@ import 'package:provider/provider.dart';
 import 'package:calendar_app/models/event.dart';
 
 import 'event_editing_page.dart';
-=======
 
-import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
-import '../models/event.dart';
-import '../provider/event_provider.dart';
-import 'event_editing_page.dart';
-import 'home_page.dart';
->>>>>>> 416b7fbcac06d38f4b4c41c7e42fd0eedcd617f2
+
 
 class EventViewingPage extends StatefulWidget {
   final Event event;

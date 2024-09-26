@@ -1,15 +1,8 @@
 import 'dart:ui';
 
-<<<<<<< HEAD
 import 'package:calendar_app/models/event.dart';
 import 'package:syncfusion_flutter_calendar/calendar.dart';
 
-=======
-import 'package:syncfusion_flutter_calendar/calendar.dart';
-
-import 'event.dart';
-
->>>>>>> 416b7fbcac06d38f4b4c41c7e42fd0eedcd617f2
 class EventDataSource extends CalendarDataSource {
   EventDataSource(List<Event> appointments) {
     this.appointments = appointments;
@@ -28,6 +21,5 @@ class EventDataSource extends CalendarDataSource {
   @override
   Color getColor(int index) => getEvent(index).backgroundColor;
   @override
-
   bool isAllDay(int index) => getEvent(index).isAllDay;
 }

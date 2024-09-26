@@ -1,22 +1,12 @@
-<<<<<<< HEAD
 import 'package:calendar_app/models/event_data_source.dart';
 import 'package:calendar_app/pages/event_viewing_page.dart';
 import 'package:calendar_app/provider/event_provider.dart';
-=======
 
->>>>>>> 416b7fbcac06d38f4b4c41c7e42fd0eedcd617f2
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:syncfusion_flutter_calendar/calendar.dart';
 import 'package:syncfusion_flutter_core/theme.dart';
 
-<<<<<<< HEAD
-=======
-import '../models/event_data_source.dart';
-import '../pages/event_viewing_page.dart';
-import '../provider/event_provider.dart';
-
->>>>>>> 416b7fbcac06d38f4b4c41c7e42fd0eedcd617f2
 class TasksWidget extends StatefulWidget {
   const TasksWidget({super.key});
 
@@ -48,8 +38,8 @@ class _TasksWidgetState extends State<TasksWidget> {
           todayHighlightColor: Colors.white,
           initialDisplayDate: provider.selectedDate,
           appointmentBuilder: appointmentBuilder,
-          selectionDecoration:
-              BoxDecoration(color: const Color.fromARGB(255, 56, 9, 149).withOpacity(0.3)),
+          selectionDecoration: BoxDecoration(
+              color: const Color.fromARGB(255, 56, 9, 149).withOpacity(0.3)),
           onTap: (details) {
             if (details.appointments == null) return;
             final event = details.appointments!.first;
