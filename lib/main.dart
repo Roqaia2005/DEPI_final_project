@@ -1,5 +1,7 @@
 
+import 'package:finalproject/pages/EventScreen.dart';
 import 'package:finalproject/pages/home_page.dart';
+import 'package:finalproject/provider/EventProvider.dart';
 import 'package:finalproject/provider/event_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -13,8 +15,12 @@ class CalendarApp extends StatelessWidget {
 
   // This widget is the root of your application.
   @override
-  Widget build(BuildContext context) => ChangeNotifierProvider(
-      create: (context) => EventProvider(),
+  Widget build(BuildContext context) => MultiProvider(
+      providers: [
+      ChangeNotifierProvider(create: (_) => EventtProvider()),
+        ChangeNotifierProvider(create: (_) => EventProvider()),
+
+      ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         themeMode: ThemeMode.dark,
@@ -22,6 +28,6 @@ class CalendarApp extends StatelessWidget {
           scaffoldBackgroundColor: Colors.transparent,
           hintColor: Colors.white,
         ),
-        home: HomePage(),
+        home: EventScreen(),
       ));
 }

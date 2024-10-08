@@ -6,8 +6,8 @@ import '../models/event.dart';
 
 
 
-class EventProvider extends ChangeNotifier {
-  final List<Event> _events = [];
+class EventtProvider extends ChangeNotifier {
+  final List<Eventt> _events = [];
   DateTime _selectedDate = DateTime.now();
   DateTime get selectedDate => _selectedDate;
   void setDate(DateTime date) {
@@ -15,17 +15,17 @@ class EventProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  List<Event> get eventsOfSelectedDate => _events;
+  List<Eventt> get eventsOfSelectedDate => _events;
 
-  List<Event> get events => _events;
+  List<Eventt> get events => _events;
 
-  void addEvent(Event event) {
+  void addEvent(Eventt event) {
     _events.add(event);
 
     notifyListeners();
   }
 
-  void deleteEvent(Event event) {
+  void deleteEvent(Eventt event) {
     _events.remove(event);
     notifyListeners();
   }
@@ -37,7 +37,7 @@ class EventProvider extends ChangeNotifier {
 //     notifyListeners();
 //   }
 // }
-  void editEvent(Event newEvent, Event oldEvent) {
+  void editEvent(Eventt newEvent, Eventt oldEvent) {
     final index = _events
         .indexWhere((event) => event == oldEvent); // Find the exact event
     if (index != -1) {

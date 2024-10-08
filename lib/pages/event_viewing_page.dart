@@ -11,7 +11,7 @@ import 'home_page.dart';
 
 
 class EventViewingPage extends StatefulWidget {
-  final Event event;
+  final Eventt event;
 
   const EventViewingPage({super.key, required this.event});
 
@@ -95,7 +95,7 @@ class _EventViewingPageState extends State<EventViewingPage> {
     );
 
     if (shouldDelete == true && widget.event != null) {
-      final provider = Provider.of<EventProvider>(context, listen: false);
+      final provider = Provider.of<EventtProvider>(context, listen: false);
       provider.deleteEvent(widget.event!);
       Navigator.of(context)
           .push(MaterialPageRoute(builder: (context) => HomePage()));

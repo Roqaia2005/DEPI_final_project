@@ -227,7 +227,7 @@ import 'home_page.dart';
 // }
 class EventEditingPage extends StatefulWidget {
   EventEditingPage({super.key, this.event});
-  final Event? event;
+  final Eventt? event;
 
   @override
   State<EventEditingPage> createState() => _EventEditingPageState();
@@ -429,7 +429,7 @@ Future saveForm() async {
   final isValid = _formKey.currentState!.validate();
   if (isValid) {
     // Create the updated event
-    final newEvent = Event(
+    final newEvent = Eventt(
       title: titleController.text,
       from: fromDate,
       to: toDate,
@@ -437,7 +437,7 @@ Future saveForm() async {
       isAllDay: false,
     );
 
-    final provider = Provider.of<EventProvider>(context, listen: false);
+    final provider = Provider.of<EventtProvider>(context, listen: false);
 
     // Check if editing an existing event or adding a new one
     if (widget.event != null) {

@@ -17,7 +17,7 @@ class TasksWidget extends StatefulWidget {
 class _TasksWidgetState extends State<TasksWidget> {
   @override
   Widget build(BuildContext context) {
-    final provider = Provider.of<EventProvider>(context, listen: false);
+    final provider = Provider.of<EventtProvider>(context, listen: false);
     final selectedEvents = provider.eventsOfSelectedDate;
     if (selectedEvents.isEmpty) {
       return Center(
