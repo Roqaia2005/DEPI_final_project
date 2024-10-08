@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:slide_countdown/slide_countdown.dart';
 
+import '../Customs/MyAppBar.dart';
+
 class EventDetailsScreen extends StatefulWidget {
   EventDetailsScreen({super.key});
 
@@ -29,276 +31,278 @@ class _EventDetailsScreenState extends State<EventDetailsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Countown Details"),
+        title: Text("Event Details",
+            style: const TextStyle(fontWeight: FontWeight.bold)),
+        centerTitle: true,
       ),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(20.0),
           child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-          //title and date
-          Container(
-            decoration: BoxDecoration(
-                color: Colors.grey[700],
-                borderRadius: BorderRadius.circular(20)),
-            child: Padding(
-              padding: const EdgeInsets.all(15.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const Text("Basmola's Birthday",
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 25)),
-                  const SizedBox(height: 5),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              //title and date
+              Container(
+                decoration: BoxDecoration(
+                    color: Colors.grey[700],
+                    borderRadius: BorderRadius.circular(20)),
+                child: Padding(
+                  padding: const EdgeInsets.all(15.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text("June 5 2025 - 04:00 PM",
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              color: Colors.grey[400],
-                              fontSize: 15)),
-                      const Icon(Icons.edit_rounded,
-                          size: 20, color: Colors.purple),
-                    ],
-                  ),
-                ],
-              ),
-            ),
-          ),
-
-          SizedBox(height: 5),
-
-          //countdown
-          Padding(
-            padding: const EdgeInsets.all(12.0),
-            child: Container(
-              decoration: BoxDecoration(
-                  color: Colors.grey[700],
-                  borderRadius: BorderRadius.circular(20)),
-              child: RawSlideCountdown(
-                  streamDuration: StreamDuration(
-                    config: StreamDurationConfig(
-                      countDownConfig: CountDownConfig(
-                          duration: Duration(
-                              days: 28 - dateTimeNow.day,
-                              hours: 2,
-                              minutes: 30)),
-                    ),
-                  ),
-                  builder: (context, duration, countUp) {
-                    return Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        //day
-                        _buildTimer(
-                            first: RawDigitItem(
-                              duration: duration,
-                              timeUnit: TimeUnit.days,
-                              digitType: DigitType.first,
-                              countUp: countUp,
-                              style: TextStyle(
-                                  fontSize: timerSize,
-                                  fontWeight: timerWeight,
-                                  color: timerColor),
-                            ),
-                            second: RawDigitItem(
-                              duration: duration,
-                              timeUnit: TimeUnit.days,
-                              digitType: DigitType.second,
-                              countUp: countUp,
-                              style: TextStyle(
-                                  fontSize: timerSize,
-                                  fontWeight: timerWeight,
-                                  color: timerColor),
-                            ),
-                            title: 'Days'),
-
-                        //hours
-                        _buildTimer(
-                            first: RawDigitItem(
-                              duration: duration,
-                              timeUnit: TimeUnit.hours,
-                              digitType: DigitType.first,
-                              countUp: countUp,
-                              style: TextStyle(
-                                  fontSize: timerSize,
-                                  fontWeight: timerWeight,
-                                  color: timerColor),
-                            ),
-                            second: RawDigitItem(
-                              duration: duration,
-                              timeUnit: TimeUnit.hours,
-                              digitType: DigitType.second,
-                              countUp: countUp,
-                              style: TextStyle(
-                                  fontSize: timerSize,
-                                  fontWeight: timerWeight,
-                                  color: timerColor),
-                            ),
-                            title: 'Hours'),
-
-                        //min
-                        _buildTimer(
-                            first: RawDigitItem(
-                              duration: duration,
-                              timeUnit: TimeUnit.minutes,
-                              digitType: DigitType.first,
-                              countUp: countUp,
-                              style: TextStyle(
-                                  fontSize: timerSize,
-                                  fontWeight: timerWeight,
-                                  color: timerColor),
-                            ),
-                            second: RawDigitItem(
-                              duration: duration,
-                              timeUnit: TimeUnit.minutes,
-                              digitType: DigitType.second,
-                              countUp: countUp,
-                              style: TextStyle(
-                                  fontSize: timerSize,
-                                  fontWeight: timerWeight,
-                                  color: timerColor),
-                            ),
-                            title: 'Minutes'),
-
-                        //seconds
-                        _buildTimer(
-                            first: RawDigitItem(
-                              duration: duration,
-                              timeUnit: TimeUnit.seconds,
-                              digitType: DigitType.first,
-                              countUp: countUp,
-                              style: TextStyle(
-                                  fontSize: timerSize,
-                                  fontWeight: timerWeight,
-                                  color: timerColor),
-                            ),
-                            second: RawDigitItem(
-                              duration: duration,
-                              timeUnit: TimeUnit.seconds,
-                              digitType: DigitType.second,
-                              countUp: countUp,
-                              style: TextStyle(
-                                  fontSize: timerSize,
-                                  fontWeight: timerWeight,
-                                  color: timerColor),
-                            ),
-                            title: 'Seconds'),
-                      ],
-                    );
-                  }),
-            ),
-          ),
-
-          //description
-          Padding(
-            padding: const EdgeInsets.all(12.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const Text(
-                  "Details",
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold),
-                ),
-                const SizedBox(height: 10),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                  child: Container(
-                    color: Colors.red,
-                    width: 500,
-                    height: 200,
-                    child: Text("kmooiweoined"),
-                  ),
-                )
-              ],
-            ),
-          ),
-
-          //notification
-          Padding(
-            padding: const EdgeInsets.all(12.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                //notification and icon
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 8.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      const Text("Set Notification",
+                      const Text("Basmola's Birthday",
                           style: TextStyle(
                               color: Colors.white,
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold)),
-                      Switch(
-                          value: (wantNotify),
-                          onChanged: (value) {
-                            setState(() {
-                              wantNotify = value;
-                            });
-                          },
-                          activeColor: c,
-                          thumbIcon:
-                              MaterialStateProperty.resolveWith<Icon?>(
-                                  (Set<MaterialState> states) {
-                            if (states.contains(MaterialState.selected)) {
-                              return const Icon(Icons.notifications_active);
-                            }
-                            return null;
-                          }))
+                              fontWeight: FontWeight.bold,
+                              fontSize: 25)),
+                      const SizedBox(height: 5),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text("June 5 2025 - 04:00 PM",
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.grey[400],
+                                  fontSize: 15)),
+                          const Icon(Icons.edit_rounded,
+                              size: 20, color: Colors.purple),
+                        ],
+                      ),
                     ],
                   ),
                 ),
+              ),
 
-                //notifyList
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                  child: ListView.builder(
-                      shrinkWrap: true,
-                      physics: NeverScrollableScrollPhysics(),
-                      itemCount: notifications.length,
-                      itemBuilder: (context, index) {
-                        return _buildNotification(notifications[index]);
+              SizedBox(height: 5),
+
+              //countdown
+              Padding(
+                padding: const EdgeInsets.all(12.0),
+                child: Container(
+                  decoration: BoxDecoration(
+                      color: Colors.grey[700],
+                      borderRadius: BorderRadius.circular(20)),
+                  child: RawSlideCountdown(
+                      streamDuration: StreamDuration(
+                        config: StreamDurationConfig(
+                          countDownConfig: CountDownConfig(
+                              duration: Duration(
+                                  days: 28 - dateTimeNow.day,
+                                  hours: 2,
+                                  minutes: 30)),
+                        ),
+                      ),
+                      builder: (context, duration, countUp) {
+                        return Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            //day
+                            _buildTimer(
+                                first: RawDigitItem(
+                                  duration: duration,
+                                  timeUnit: TimeUnit.days,
+                                  digitType: DigitType.first,
+                                  countUp: countUp,
+                                  style: TextStyle(
+                                      fontSize: timerSize,
+                                      fontWeight: timerWeight,
+                                      color: timerColor),
+                                ),
+                                second: RawDigitItem(
+                                  duration: duration,
+                                  timeUnit: TimeUnit.days,
+                                  digitType: DigitType.second,
+                                  countUp: countUp,
+                                  style: TextStyle(
+                                      fontSize: timerSize,
+                                      fontWeight: timerWeight,
+                                      color: timerColor),
+                                ),
+                                title: 'Days'),
+
+                            //hours
+                            _buildTimer(
+                                first: RawDigitItem(
+                                  duration: duration,
+                                  timeUnit: TimeUnit.hours,
+                                  digitType: DigitType.first,
+                                  countUp: countUp,
+                                  style: TextStyle(
+                                      fontSize: timerSize,
+                                      fontWeight: timerWeight,
+                                      color: timerColor),
+                                ),
+                                second: RawDigitItem(
+                                  duration: duration,
+                                  timeUnit: TimeUnit.hours,
+                                  digitType: DigitType.second,
+                                  countUp: countUp,
+                                  style: TextStyle(
+                                      fontSize: timerSize,
+                                      fontWeight: timerWeight,
+                                      color: timerColor),
+                                ),
+                                title: 'Hours'),
+
+                            //min
+                            _buildTimer(
+                                first: RawDigitItem(
+                                  duration: duration,
+                                  timeUnit: TimeUnit.minutes,
+                                  digitType: DigitType.first,
+                                  countUp: countUp,
+                                  style: TextStyle(
+                                      fontSize: timerSize,
+                                      fontWeight: timerWeight,
+                                      color: timerColor),
+                                ),
+                                second: RawDigitItem(
+                                  duration: duration,
+                                  timeUnit: TimeUnit.minutes,
+                                  digitType: DigitType.second,
+                                  countUp: countUp,
+                                  style: TextStyle(
+                                      fontSize: timerSize,
+                                      fontWeight: timerWeight,
+                                      color: timerColor),
+                                ),
+                                title: 'Minutes'),
+
+                            //seconds
+                            _buildTimer(
+                                first: RawDigitItem(
+                                  duration: duration,
+                                  timeUnit: TimeUnit.seconds,
+                                  digitType: DigitType.first,
+                                  countUp: countUp,
+                                  style: TextStyle(
+                                      fontSize: timerSize,
+                                      fontWeight: timerWeight,
+                                      color: timerColor),
+                                ),
+                                second: RawDigitItem(
+                                  duration: duration,
+                                  timeUnit: TimeUnit.seconds,
+                                  digitType: DigitType.second,
+                                  countUp: countUp,
+                                  style: TextStyle(
+                                      fontSize: timerSize,
+                                      fontWeight: timerWeight,
+                                      color: timerColor),
+                                ),
+                                title: 'Seconds'),
+                          ],
+                        );
                       }),
                 ),
+              ),
 
-                //add Notification Button
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Center(
-                      child: TextButton(
-                    onPressed: () {},
-                    style: ButtonStyle(
-                        shape: MaterialStateProperty.all(
-                            RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(15))),
-                        backgroundColor:
-                            MaterialStateProperty.all(Colors.purple)),
-                    child: const Padding(
-                      padding: EdgeInsets.all(5.0),
-                      child: Text(
-                        "Add Notification",
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white,
-                            fontSize: 15),
+              //description
+              Padding(
+                padding: const EdgeInsets.all(12.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Text(
+                      "Details",
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold),
+                    ),
+                    const SizedBox(height: 10),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                      child: Container(
+                        color: Colors.red,
+                        width: 500,
+                        height: 200,
+                        child: Text("kmooiweoined"),
+                      ),
+                    )
+                  ],
+                ),
+              ),
+
+              //notification
+              Padding(
+                padding: const EdgeInsets.all(12.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    //notification and icon
+                    Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 8.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          const Text("Set Notification",
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold)),
+                          Switch(
+                              value: (wantNotify),
+                              onChanged: (value) {
+                                setState(() {
+                                  wantNotify = value;
+                                });
+                              },
+                              activeColor: c,
+                              thumbIcon:
+                                  MaterialStateProperty.resolveWith<Icon?>(
+                                      (Set<MaterialState> states) {
+                                if (states.contains(MaterialState.selected)) {
+                                  return const Icon(Icons.notifications_active);
+                                }
+                                return null;
+                              }))
+                        ],
                       ),
                     ),
-                  )),
-                )
-              ],
-            ),
-          )
-                      ],
+
+                    //notifyList
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                      child: ListView.builder(
+                          shrinkWrap: true,
+                          physics: NeverScrollableScrollPhysics(),
+                          itemCount: notifications.length,
+                          itemBuilder: (context, index) {
+                            return _buildNotification(notifications[index]);
+                          }),
                     ),
+
+                    //add Notification Button
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Center(
+                          child: TextButton(
+                        onPressed: () {},
+                        style: ButtonStyle(
+                            shape: MaterialStateProperty.all(
+                                RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(15))),
+                            backgroundColor:
+                                MaterialStateProperty.all(Colors.purple)),
+                        child: const Padding(
+                          padding: EdgeInsets.all(5.0),
+                          child: Text(
+                            "Add Notification",
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white,
+                                fontSize: 15),
+                          ),
+                        ),
+                      )),
+                    )
+                  ],
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );

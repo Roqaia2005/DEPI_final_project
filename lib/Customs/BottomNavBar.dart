@@ -1,8 +1,10 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
-import 'package:finalproject/pages/EventForm.dart';
 import 'package:finalproject/pages/EventScreen.dart';
 import 'package:finalproject/widgets/Add_widget.dart';
 import 'package:flutter/material.dart';
+
+import '../pages/Todo.dart';
+import '../pages/home_page.dart';
 
 class BottomNavBar extends StatefulWidget {
   const BottomNavBar({super.key});
@@ -12,47 +14,46 @@ class BottomNavBar extends StatefulWidget {
 }
 
 class _BottomNavBarState extends State<BottomNavBar> {
-  int selectedIdx = 0; // Moved outside the build method for state management
-
+  int selectedIdx=1;
+  int changeIdx=0;
   @override
   Widget build(BuildContext context) {
-    Color bgc = Colors.blueGrey;
-
     List<Widget> screens = [
       const EventScreen(),
       const AddWidget(),
+      const NotesViewBody(),
     ];
+    return Scaffold(
+      body: screens[changeIdx],
+      bottomNavigationBar: CurvedNavigationBar(
+        backgroundColor: Colors.black,
+        buttonBackgroundColor: Colors.purple,
+        color: Colors.blueGrey,
+        height: 60,
+        index: 1,
+        onTap: (value) {
+          setState(() {
+            if(value==1){
+              selectedIdx=value;
+              showModalBottomSheet(
+                  context: context, builder: (context) => const AddWidget());
+            }
+            else {
+              selectedIdx = value;
+              changeIdx=value;
+            }
+          });
 
-    return CurvedNavigationBar(
-      backgroundColor: Colors.black,
-      buttonBackgroundColor: Colors.purple,
-      color: bgc,
-      height: 60,
-      onTap: (value) {
-        setState(() {
-          selectedIdx = value;
-        });
-
-        if (value != 1) {
-          Navigator.pushReplacement(context,
-              MaterialPageRoute(builder: (context) => screens[selectedIdx]));
-        } else {
-          showModalBottomSheet(context: context, builder: (context)=>AddWidget());
-        }
-      },
-      items: [
-        _buildNavIcons(Icons.event, "Events",
-            selectedIdx==0),
-
-        _buildNavIcons(
-            Icons.add, "Add",selectedIdx==1),
-
-        _buildNavIcons(Icons.checklist, "Todo",
-            selectedIdx==2),
-      ],
-    );
-  }
+        },
+        items: [
+          _buildNavIcons(Icons.event, "Events", selectedIdx == 0),
+          _buildNavIcons(Icons.add, "Add", selectedIdx == 1),
+          _buildNavIcons(Icons.checklist, "Todo", selectedIdx == 2),
+        ],
+      ),
+    );  }
 }
+
 
 Widget _buildNavIcons(IconData icon, String label, bool isSelected) {
   Color c = Colors.grey[400]!;

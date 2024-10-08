@@ -28,13 +28,12 @@
 
 import 'package:flutter/material.dart';
 
-
-
 import 'package:flutter/material.dart';
 
+import '../Customs/BottomNavBar.dart';
+import '../Customs/MyAppBar.dart';
 import '../widgets/calendar_widget.dart';
 import 'event_editing_page.dart';
-
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -42,12 +41,8 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Calendar"),
-        centerTitle: true,
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-      ),
+      appBar: getAppBar(title: "TimeVesta", context: context),
+      //bottomNavigationBar: const BottomNavBar(),
       body: Container(
         decoration: BoxDecoration(
           gradient: LinearGradient(
@@ -62,16 +57,16 @@ class HomePage extends StatelessWidget {
         ),
         child: CalendarWidget(), // Your calendar widget
       ),
-      floatingActionButton: FloatingActionButton(
-        child: Icon(
-          Icons.add,
-          color: Colors.white,
-        ),
-        backgroundColor: Colors.cyan,
-        onPressed: () => Navigator.of(context).push(
-          MaterialPageRoute(builder: (context) => EventEditingPage()),
-        ),
-      ),
+      // floatingActionButton: FloatingActionButton(
+      //   child: Icon(
+      //     Icons.add,
+      //     color: Colors.white,
+      //   ),
+      //   backgroundColor: Colors.cyan,
+      //   onPressed: () => Navigator.of(context).push(
+      //     MaterialPageRoute(builder: (context) => EventEditingPage()),
+      //   ),
+      // ),
     );
   }
 }

@@ -1,6 +1,8 @@
 import 'package:finalproject/pages/EventForm.dart';
 import 'package:flutter/material.dart';
 
+import '../pages/Todo.dart';
+
 class AddWidget extends StatelessWidget {
   const AddWidget({super.key});
 
@@ -32,7 +34,8 @@ class AddWidget extends StatelessWidget {
               child: const Text("Add Event")),
           TextButton(
               onPressed: () {
-
+                Navigator.pop(context);
+                //showDialog(context: context, builder: (context)=>NotesViewBody.AddTaskWidget());
               },
               style: ButtonStyle(
                   shape: MaterialStateProperty.all(RoundedRectangleBorder(

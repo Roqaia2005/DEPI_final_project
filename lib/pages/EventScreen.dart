@@ -1,4 +1,5 @@
 import 'package:finalproject/Customs/BottomNavBar.dart';
+import 'package:finalproject/Customs/MyAppBar.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -23,21 +24,14 @@ class _EventScreenState extends State<EventScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text(
-          "Countdown Events",
-          style: TextStyle(fontWeight: FontWeight.bold),
-        ),
-        centerTitle: true,
-        bottom: TabBar(
-          controller: _tabController,
-          tabs: const [
-            Tab(text: "Upcoming"),
-            Tab(text: "History"),
-          ],
-        ),
-      ),
-      bottomNavigationBar: const BottomNavBar(),
+      appBar: getAppBar(title: "Your Events", tabBar: TabBar(
+        controller: _tabController,
+        tabs: const [
+          Tab(text: "Upcoming"),
+          Tab(text: "History"),
+        ],
+      ), context: context,),
+      //bottomNavigationBar: BottomNavBar(),
       body: TabBarView(
         controller: _tabController,
         children: [

@@ -6,6 +6,8 @@ import 'package:finalproject/provider/event_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import 'Customs/BottomNavBar.dart';
+
 void main() {
   runApp(const CalendarApp());
 }
@@ -28,6 +30,6 @@ class CalendarApp extends StatelessWidget {
           scaffoldBackgroundColor: Colors.transparent,
           hintColor: Colors.white,
         ),
-        home: EventScreen(),
+        home: BottomNavBar(),
       ));
 }
